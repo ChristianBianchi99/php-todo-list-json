@@ -19,13 +19,16 @@
                             To Do List
                         </h1>
                         <ul>
-                            <li v-for="item in todoList">
+                            <li v-for="(item, index) in todoList" :key="index">
                                 {{item.text}}
                             </li>
                         </ul>
-                    </div>
-                    <div class="console">
-
+                        <div class="console d-flex">
+                            <input class="form-control" type="text" v-model="todoItem" @keyup.enter="addTask">
+                            <button class="btn btn-primary" @click="addTask">
+                                Aggiungi
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
